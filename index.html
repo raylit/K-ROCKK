@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Exo|Noto+Sans+KR" rel="stylesheet">
+	<meta charset = "utf-8">
+	<title>K-ROCK Chart</title>
+	<style>
+		html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {margin:0; padding:0; border:0; outline:0; font-size:100%; vertical-align:baseline; background:transparent;}
+		body {line-height:1;}
+		article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block;}
+		nav ul {list-style:none;}
+		blockquote, q {quotes:none;}
+		blockquote:before, blockquote:after, q:before, q:after {content:''; content:none;}
+		address {font-style:normal;}
+		a {margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent;}
+		button {border:0; padding:0; margin:0; background:none; cursor:pointer;}
+		table {border-collapse:collapse; border-spacing:0;}
+		input, select {vertical-align:middle;}
+		ul, ol, dl {list-style-type:none;}
+		h1, h2, h3, h4, h5, h6 {font-weight:normal}
+		li, img {vertical-align:middle;}
+		textarea {resize:none;}
+		table {border-spacing:0; border-collapse:collapse;}
+		input {-webkit-appearance: none; border-radius: 0;}
+
+		
+		a:hover, a:link, a:visited, a:active { text-decoration: none; }
+
+		#wrap { transition : 0.2s; }
+
+		#header { height:90px; background: white;}
+		#contents:before {
+			content: '';
+			position: absolute;
+			z-index: 1000;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 2px;
+			background: #f0f0f0;
+		}
+
+
+		#logo { position: relative; float:left; overflow: hidden; top:16px; width:58px; height:58px; background: black;
+			left: calc(50% - 29px);  }
+		#music-list {  }
+		.music-list {
+			margin: 0px;
+			clear: both;
+			padding: 30px 2px;
+		}
+		.music-item { 
+			overflow: hidden;
+			transition: 0.2s;
+			margin: 2px;
+			width: 275px;
+			height: 275px; }
+
+		.container { position: relative; width:100%; }
+		.component {
+			position: relative; width:1120px;
+			margin:0 auto; padding:0 40px; }
+		.component:after {
+			content: '';
+			display: block;
+			clear: both;
+			height: 0;
+			line-height: 0;
+		}
+		.content-title { padding-top:80px; }
+		
+		.title {
+			float: left; 
+			font-family: 'Exo', sans-serif;
+			position: relative;
+			margin: auto;
+			padding-bottom: 22px;
+			font-size: 2em;
+			color: black;
+			text-transform: uppercase;
+			font-weight: 700;
+			word-spacing: 0px;
+			letter-spacing: -0.1px; 
+			line-height: 45px;
+
+		}
+		
+		#chart:before {
+			position: relative;
+			left: 0px;
+			font-weight: 400;
+			font-size:0.5em;
+			content:"Korean Rock Music";
+		}
+		#chart {
+			position: relative;
+			left: 0px;
+			font-size:3em;
+		}
+		#chart:after {
+			position: relative;
+			left: -5px;
+			font-size:0.8em;
+			content: "chart";
+		}
+		
+		.desc:before{
+			content:'';
+			height: 2px;
+			position: absolute;
+			top:0px; left:0px;
+			width: 500px;
+			background: black;
+		}
+		.desc {
+			clear: both;
+			
+			position: relative;
+			padding-top: 20px;
+			color: #888888;
+			font-size: 1.167em;
+			line-height: 20px;
+		}
+
+		.desc p{
+			word-break: keep-all;
+			width: 525px;
+			font-size: 0.78em;
+			line-height:1.7em;
+			font-family: 'Noto Sans KR', sans-serif;}
+
+		.content-info{
+			padding-bottom: 100px;
+			padding-top: 100px;
+		}
+		.rock-music-nav { clear: both; float: right; width: 534px;}
+		.rock-music-nav ul {display: block; position: relative; width:100%;}
+		.rock-music-nav ul:before {
+			content: ''; position: absolute; top:33px; left: 0;
+			width: 100%; height: 1px; background: #e0e0e0;
+		}
+		.rock-music-nav li {
+			display: block;
+			position: relative;
+			float:left;
+			width: 85px;
+			margin: 0 2px;
+		}
+		.rock-music-nav li span {
+			font-family: 'Exo', sans-serif;
+			display: block;
+			position: relative; width: 100%; height: 100%;
+			font-size: 0.7em; font-weight: 700; line-height: 20px;
+			text-align: center; text-transform: uppercase;	}
+
+		.rock-music-nav li a {
+			transition: 0.2s;
+			overflow: hidden;
+			display: block;
+			width: 100%; height:20px; padding: 7px 0;
+		}
+		.rock-music-nav li a:before {
+			content: ''; transition: height 100ms ease-out;
+			position: absolute; bottom: 0; width: 100%; height: 1px;
+		}
+		.rock-music-nav li a.all:before { background: black; }
+		.rock-music-nav li a.all { color: black; }
+		.rock-music-nav li a.all:hover { background: black; color: white;}
+		.rock-music-nav li a.folk:before { background: #8f9bca; }
+		.rock-music-nav li a.folk { color: #8f9bca; }
+		.rock-music-nav li a.folk:hover { background: #8f9bca; color: white;}
+		.rock-music-nav li a.punk:before { background: #80cdd7; }
+		.rock-music-nav li a.punk { color: #80cdd7; }
+		.rock-music-nav li a.punk:hover { background: #80cdd7; color: white;}
+		.rock-music-nav li a.psyche:before { background: #abc34d; }
+		.rock-music-nav li a.psyche { color: #abc34d; }
+		.rock-music-nav li a.psyche:hover { background: #abc34d; color: white;}
+		.rock-music-nav li a.metal:before { background: #fdc333; }
+		.rock-music-nav li a.metal { color: #fdc333; }
+		.rock-music-nav li a.metal:hover { background: #fdc333; color: white;}
+		.rock-music-nav li a.modern:before { background: #df7460; }
+		.rock-music-nav li a.modern{ color: #df7460; }
+		.rock-music-nav li a.modern:hover { background: #df7460; color: white;}
+		.rock-music-nav li a.select:before { height: 100%; }
+		.rock-music-nav li a.select { color: white; }
+		
+		.moderny { background: #df7460; }
+		.psychy { background: #abc34d; }
+		.punky { background: #80cdd7; }
+		.folky { background: #8f9bca; }
+		.metaly { background: #fdc333; }
+
+		
+		
+		
+
+		.albumCover { position:relative;
+			left:5px; top: 5px; cursor: pointer;
+			width:265px; height:265px; transition: 0.2s;}
+		.albumCover:hover { left:12.5px; top:12.5px; width:250px; height:250px; opacity: 0;}
+		.music-item p{ position: absolute; bottom: 20px; left: 20px; font-size: 1em;
+			line-height:1.7em; font-weight: bold; color: white;
+			font-family: 'Noto Sans KR', sans-serif; }
+
+		#mist { position: fixed; left: 0; top:0; background: black; width: 100%; height: 100%;
+			}
+		#mist p1{
+			font-family: 'Exo', sans-serif;
+			font-size: 2em;
+			color: black;
+			text-transform: uppercase;
+			font-weight: 700;
+			word-spacing: 0px;
+			letter-spacing: -0.1px; 
+			line-height: 45px;
+			position: fixed; top: 350px; left: 200px; color:white; }
+		#mist p2{ 
+			font-family: 'Exo', sans-serif;
+			font-size: 2em;
+			color: black;
+			text-transform: uppercase;
+			font-weight: 700;
+			word-spacing: 0px;
+			letter-spacing: -0.1px; 
+			line-height: 45px;
+			position: fixed; top: 350px; right: 100px; color:white; }
+		#cain{ position: fixed; height:610px; opacity:1; left:calc(50% - 215px); top:90px; transition: 1s;
+			transition-delay: display 1s;}
+
+	</style>
+</head>
+<body>
+
+<div id="wrap">
+	
+	<div id="header" class="container">
+		<div class="component">
+			<a id="logo" href="index.html" title="Main">
+				<img src="logo.png" alt="Main" width="58" height="58">
+			</a>
+		</div>
+	</div>
+
+	<div id="contents" class="container">
+		<div class="component" style="background: white;">
+			<div class="content-title">
+			
+			<h4 id="chart" class="title">
+				<br>K-ROCK
+			</h4>
+
+			<div class="desc">
+				<p class="start">
+				2018년 현재 한국의 음악 시장은 K-POP으로 대변되는 Idol 음악과, 기성 가수들의 발라드 혹은 OST, 그리고 Show me the Money와 고등래퍼 등의 오디션 프로그램에 힘입어 차트를 넘보는 Hip-Hop 음악이 주류이다. 1980년대 이후 한국에서 '록 음악'은 매우 불안정한 입지를 가지게 되었는데, 한국 록의 인지도 부족은 음악성의 부족이 아닌 록 음악에 대한 사람들의 무지와 선입견에 기인하고, 또한 기존 음악 시장의 자본력을 따라가지 못하기 때문이다. <br><br>그렇기에 이 차트에서는 이러한 한국의 음악 시장 현황에도 꾸준히 음악 활동을 지속하며 대한민국 록 음악 발전에 기여하고 있는 현재의 한국의 록 밴드들, 그들의 명반을 소개하려고 한다.
+				</p>
+			</div>
+			</div>
+			<div class="content-info">
+				<div id="rock-music-nav" class="rock-music-nav">
+					<ul>
+						<li>
+							<a href="#all" class="all select">
+								<span>ALL</span>
+							</a>
+						</li>
+						<li>
+							<a href="#folk" class="folk">
+								<span>FOLK</span>
+							</a>
+						</li>
+						<li>
+							<a href="#punk" class="punk">
+								<span>PUNK</span>
+							</a>
+						</li>
+						<li>
+							<a href="#psyche" class="psyche">
+								<span>PSYCHEDELIC</span>
+							</a>
+						</li>
+						<li>
+							<a href="#metal" class="metal">
+								<span>METAL</span>
+							</a>
+						</li>
+						<li>
+							<a href="#modern" class="modern">
+								<span>MODERN</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<ul id="music-list" class="music-list" style="position: relative; height: 3627px;">
+					<li class="music-item moderny psychy" style="position: absolute; left:2px; top:30px;">
+						<p>
+							국카스텐<br>1집 Guckkasten<br>Modern / Psychedelic
+						</p>
+						<img id="guckka" src="guckka.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:281px; top:30px;">
+						<p>
+							넬(Nell)<br>4집 Separation Anxiety<br>Modern / Psychedelic
+						</p>
+						<img id="nell" src="nell.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:560px; top:30px;">
+						<p>
+							로맨틱펀치<br>1집 Midnight Cinderella<br>Modern / Punk
+						</p>
+						<img id="rpunch" src="rpunch.png" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:839px; top:30px;">
+						<p>
+							페퍼톤스<br>4집 beginner's luck<br>Modern
+						</p>
+						<img id="ppts" src="ppts.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:2px; top:309px;">
+						<p>
+							혁오<br>1집 23<br>Modern
+						</p>
+						<img id="hyukoh" src="hyukoh.jpg" class="albumCover">
+					</li>
+
+					<li class="music-item metaly" style="position: absolute; left:281px; top:309px;">
+						<p>
+							해리빅버튼<br>2집 Man of Spirit<br>Metal
+						</p>
+						<img id="hbbutton" src="hbbutton.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:309px;">
+						<p>
+							잠비나이<br>1집 차연 (Differance)<br>Modern
+						</p>
+						<img id="jambinai" src="jambinai.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:839px; top:309px;">
+						<p>
+							술탄 오브 더 디스코<br>2집 Aliens<br>Modern / Punk
+						</p>
+						<img id="sultan" src="sultan.JPG" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:2px; top:588px;">
+						<p>
+							잔나비<br>1집 Monkey Hotel<br>Modern
+						</p>
+						<img id="jannabi" src="jannabi.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:281px; top:588px;">
+						<p>
+							데이브레이크<br>2집 Aurora<br>Modern
+						</p>
+						<img id="daybreak" src="daybreak.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:560px; top:588px;">
+						<p>
+							새소년<br>EP 여름깃<br>Modern / Psychedelic
+						</p>
+						<img id="newboys" src="newboys.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:839px; top:588px;">
+						<p>
+							3호선 버터플라이<br>4집 Dreamtalk<br>Modern
+						</p>
+						<img id="3rdbutfly" src="3rdbutfly.JPG" class="albumCover">
+					</li>
+					<li class="music-item folky psychy" style="position: absolute; left:2px; top:867px;">
+						<p>
+							장기하와 얼굴들<br>2집 장기하와 얼굴들<br>Folk / Psychedelic
+						</p>
+						<img id="jangkiha" src="jangkiha.JPG" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:281px; top:867px;">
+						<p>
+							쏜애플<br>2집 이상기후<br>Modern / Psychedelic
+						</p>
+						<img id="thornapple" src="thornapple.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:867px;">
+						<p>
+							못(MOT)<br>1집 비선형(Non-Linear)<br>Modern
+						</p>
+						<img id="mot" src="mot.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:839px; top:867px;">
+						<p>
+							O.O.O<br>EP HOME<br>Modern
+						</p>
+						<img id="ooohome" src="ooohome.jpg" class="albumCover">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+	<div id="mist">
+		<p1>2018. 12. 4.</p1>
+		<img src="cainposter.png" id="cain">
+		<p2>CAIN Regular Concert</p2>
+	</div>
+		<script type="text/javascript">
+			var t = document.getElementsByClassName("all")[0];
+			var x = document.getElementsByClassName("folk")[0];
+			var y = document.getElementsByClassName("punk")[0];
+			var z = document.getElementsByClassName("psyche")[0];
+			var v = document.getElementsByClassName("metal")[0];
+			var w = document.getElementsByClassName("modern")[0];
+
+			var allmu = document.getElementsByClassName("music-item");
+			var folkk = document.getElementsByClassName("folky");
+			var punkk = document.getElementsByClassName("punky");
+			var psychic = document.getElementsByClassName("psychy");
+			var metalic = document.getElementsByClassName("metaly");
+			var modernic = document.getElementsByClassName("moderny");
+
+			var alcov = document.getElementsByClassName("albumCover");
+			
+			console.log(folkk.length);
+
+			var t1 = 30 + "px";
+			var t2 = 309 + "px";
+			var t3 = 588 + "px";
+			var t4 = 867 + "px";
+
+			var l1 = 2 + "px";
+			var l2 = 281 + "px";
+			var l3 = 560 + "px";
+			var l4 = 839 + "px";
+
+			t.onclick = function(){
+				t.className = "all select";
+				x.className = "folk";
+				y.className = "punk";
+				z.className = "psyche";
+				v.className = "metal";
+				w.className = "modern";
+				
+				wrap.style.background = "white";
+
+				allmu[0].style.top = t1;
+				allmu[0].style.left = l1;
+				allmu[1].style.top = t1;
+				allmu[1].style.left = l2;
+				allmu[2].style.top = t1;
+				allmu[2].style.left = l3;
+				allmu[3].style.top = t1;
+				allmu[3].style.left = l4;
+				allmu[4].style.top = t2;
+				allmu[4].style.left = l1;
+				allmu[5].style.top = t2;
+				allmu[5].style.left = l2;
+				allmu[6].style.top = t2;
+				allmu[6].style.left = l3;
+				allmu[7].style.top = t2;
+				allmu[7].style.left = l4;
+				allmu[8].style.top = t3;
+				allmu[8].style.left = l1;
+				allmu[9].style.top = t3;
+				allmu[9].style.left = l2;
+				allmu[10].style.top = t3;
+				allmu[10].style.left = l3;
+				allmu[11].style.top = t3;
+				allmu[11].style.left = l4;
+				allmu[12].style.top = t4;
+				allmu[12].style.left = l1;
+				allmu[13].style.top = t4;
+				allmu[13].style.left = l2;
+				allmu[14].style.top = t4;
+				allmu[14].style.left = l3;
+				allmu[15].style.top = t4;
+				allmu[15].style.left = l4;
+
+				for (var i=0;i<modernic.length;i++){
+					modernic[i].style.width = 275 + "px";
+					modernic[i].style.height = 275 + "px";
+					modernic[i].style.background = "#df7460";
+				}
+				for (var i=0;i<psychic.length;i++){
+					psychic[i].style.width = 275 + "px";
+					psychic[i].style.height = 275 + "px";
+					psychic[i].style.background = "#abc34d";
+				}
+				for (var i=0;i<punkk.length;i++){
+					punkk[i].style.width = 275 + "px";
+					punkk[i].style.height = 275 + "px";
+					punkk[i].style.background = "#80cdd7";
+				}
+				for (var i=0;i<folkk.length;i++){
+					folkk[i].style.width = 275 + "px";
+					folkk[i].style.height = 275 + "px";
+					folkk[i].style.background = "#8f9bca";
+				}
+				for (var i=0;i<metalic.length;i++){
+					metalic[i].style.width = 275 + "px";
+					metalic[i].style.height = 275 + "px";
+					metalic[i].style.background = "#fdc333";
+				}
+			}
+			x.onclick = function(){
+				t.className = "all";
+				x.className = "folk select";
+				y.className = "punk";
+				z.className = "psyche";
+				v.className = "metal";
+				w.className = "modern";
+
+				wrap.style.background = "#8f9bca";
+
+				folkk[0].style.top = t1;
+				folkk[0].style.left = l1;
+				
+				for (var i=0;i<punkk.length;i++){
+					punkk[i].style.width = 0;
+					punkk[i].style.height = 0;
+					punkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<psychic.length;i++){
+					psychic[i].style.width = 0;
+					psychic[i].style.height = 0;
+					psychic[i].style.background = "transparent";
+				}
+				for (var i=0;i<metalic.length;i++){
+					metalic[i].style.width = 0;
+					metalic[i].style.height = 0;
+					metalic[i].style.background = "transparent";
+				}
+				for (var i=0;i<modernic.length;i++){
+					modernic[i].style.width = 0;
+					modernic[i].style.height = 0;
+					modernic[i].style.background = "transparent";
+				}
+				for (var i=0;i<folkk.length;i++){
+					folkk[i].style.width = 275 + "px";
+					folkk[i].style.height = 275 + "px";
+					folkk[i].style.background = "#8f9bca";
+				}
+			}
+			y.onclick = function(){
+				t.className = "all";
+				x.className = "folk";
+				y.className = "punk select";
+				z.className = "psyche";
+				v.className = "metal";
+				w.className = "modern";
+
+				wrap.style.background = "#80cdd7";
+
+				punkk[0].style.top = t1;
+				punkk[0].style.left = l1;
+				punkk[1].style.top = t1;
+				punkk[1].style.left = l2;
+
+				for (var i=0;i<folkk.length;i++){
+					folkk[i].style.width = 0;
+					folkk[i].style.height = 0;
+					folkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<psychic.length;i++){
+					psychic[i].style.width = 0;
+					psychic[i].style.height = 0;
+					psychic[i].style.background = "transparent";
+				}
+				for (var i=0;i<metalic.length;i++){
+					metalic[i].style.width = 0;
+					metalic[i].style.height = 0;
+					metalic[i].style.background = "transparent";
+				}
+				for (var i=0;i<modernic.length;i++){
+					modernic[i].style.width = 0;
+					modernic[i].style.height = 0;
+					modernic[i].style.background = "transparent";
+				}
+				for (var i=0;i<punkk.length;i++){
+					punkk[i].style.width = 275 + "px";
+					punkk[i].style.height = 275 + "px";
+					punkk[i].style.background = "#80cdd7";
+
+				}
+			}
+			z.onclick = function(){
+				t.className = "all";
+				x.className = "folk";
+				y.className = "punk";
+				z.className = "psyche select";
+				v.className = "metal";
+				w.className = "modern";
+
+				wrap.style.background = "#abc34d";
+
+				psychic[0].style.top = t1;
+				psychic[0].style.left = l1;
+				psychic[1].style.top = t1;
+				psychic[1].style.left = l2;
+				psychic[2].style.top = t1;
+				psychic[2].style.left = l3;
+				psychic[3].style.top = t1;
+				psychic[3].style.left = l4;
+				psychic[4].style.top = t2;
+				psychic[4].style.left = l1;
+
+				for (var i=0;i<folkk.length;i++){
+					folkk[i].style.width = 0;
+					folkk[i].style.height = 0;
+					folkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<punkk.length;i++){
+					punkk[i].style.width = 0;
+					punkk[i].style.height = 0;
+					punkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<metalic.length;i++){
+					metalic[i].style.width = 0;
+					metalic[i].style.height = 0;
+					metalic[i].style.background = "transparent";
+				}
+				for (var i=0;i<modernic.length;i++){
+					modernic[i].style.width = 0;
+					modernic[i].style.height = 0;
+					modernic[i].style.background = "transparent";
+				}
+				for (var i=0;i<psychic.length;i++){
+					psychic[i].style.width = 275 + "px";
+					psychic[i].style.height = 275 + "px";
+					psychic[i].style.background = "#abc34d";
+				}
+			}
+			v.onclick = function(){
+				t.className = "all";
+				x.className = "folk";
+				y.className = "punk";
+				z.className = "psyche";
+				v.className = "metal select";
+				w.className = "modern";
+
+				wrap.style.background = "#fdc333";
+
+				metalic[0].style.top = t1;
+				metalic[0].style.left = l1;
+
+				for (var i=0;i<folkk.length;i++){
+					folkk[i].style.width = 0;
+					folkk[i].style.height = 0;
+					folkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<punkk.length;i++){
+					punkk[i].style.width = 0;
+					punkk[i].style.height = 0;
+					punkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<psychic.length;i++){
+					psychic[i].style.width = 0;
+					psychic[i].style.height = 0;
+					psychic[i].style.background = "transparent";
+				}
+				for (var i=0;i<modernic.length;i++){
+					modernic[i].style.width = 0;
+					modernic[i].style.height = 0;
+					modernic[i].style.background = "transparent";
+				}
+				for (var i=0;i<metalic.length;i++){
+					metalic[i].style.width = 275 + "px";
+					metalic[i].style.height = 275 + "px";
+					metalic[i].style.background = "#fdc333";
+				}
+			}
+			w.onclick = function(){
+				t.className = "all";
+				x.className = "folk";
+				y.className = "punk";
+				z.className = "psyche";
+				v.className = "metal";
+				w.className = "modern select";
+
+				wrap.style.background = "#df7460";
+
+				modernic[0].style.top = t1;
+				modernic[0].style.left = l1;
+				modernic[1].style.top = t1;
+				modernic[1].style.left = l2;
+				modernic[2].style.top = t1;
+				modernic[2].style.left = l3;
+				modernic[3].style.top = t1;
+				modernic[3].style.left = l4;
+				modernic[4].style.top = t2;
+				modernic[4].style.left = l1;
+				modernic[5].style.top = t2;
+				modernic[5].style.left = l2;
+				modernic[6].style.top = t2;
+				modernic[6].style.left = l3;
+				modernic[7].style.top = t2;
+				modernic[7].style.left = l4;
+				modernic[8].style.top = t3;
+				modernic[8].style.left = l1;
+				modernic[9].style.top = t3;
+				modernic[9].style.left = l2;
+				modernic[10].style.top = t3;
+				modernic[10].style.left = l3;
+				modernic[11].style.top = t3;
+				modernic[11].style.left = l4;
+				modernic[12].style.top = t4;
+				modernic[12].style.left = l1;
+				modernic[13].style.top = t4;
+				modernic[13].style.left = l2;
+
+				for (var i=0;i<folkk.length;i++){
+					folkk[i].style.width = 0;
+					folkk[i].style.height = 0;
+					folkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<punkk.length;i++){
+					punkk[i].style.width = 0;
+					punkk[i].style.height = 0;
+					punkk[i].style.background = "transparent";
+				}
+				for (var i=0;i<psychic.length;i++){
+					psychic[i].style.width = 0;
+					psychic[i].style.height = 0;
+					psychic[i].style.background = "transparent";
+				}
+				for (var i=0;i<metalic.length;i++){
+					metalic[i].style.width = 0;
+					metalic[i].style.height = 0;
+					metalic[i].style.background = "transparent";
+				}
+				for (var i=0;i<modernic.length;i++){
+					modernic[i].style.width = 275 + "px";
+					modernic[i].style.height = 275 + "px";
+					modernic[i].style.background = "#df7460"
+				}
+			}
+			mist.onclick = function(){
+				mist.style.display = "none";
+			}
+
+		</script>
+</body>
+</html>
