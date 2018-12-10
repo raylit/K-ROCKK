@@ -29,7 +29,7 @@
 
 		#wrap { transition : 0.2s; }
 
-		#header { height:90px; background: white;}
+		#header { height:90px; }
 		#contents:before {
 			content: '';
 			position: absolute;
@@ -43,7 +43,7 @@
 		}
 
 
-		#logo { position: relative; float:left; overflow: hidden; top:16px; width:58px; height:58px; background: black;
+		#logo { position: relative; float:left; overflow: hidden; top:10px; width:64px; height:64px; background: black;
 			left: calc(50% - 29px);  }
 		#music-list {  }
 		.music-list {
@@ -51,12 +51,7 @@
 			clear: both;
 			padding: 30px 2px;
 		}
-		.music-item { 
-			overflow: hidden;
-			transition: 0.2s;
-			margin: 2px;
-			width: 275px;
-			height: 275px; }
+		
 
 		.container { position: relative; width:100%; }
 		.component {
@@ -171,64 +166,52 @@
 		.rock-music-nav li a.folk:before { background: #8f9bca; }
 		.rock-music-nav li a.folk { color: #8f9bca; }
 		.rock-music-nav li a.folk:hover { background: #8f9bca; color: white;}
-		.rock-music-nav li a.punk:before { background: #80cdd7; }
-		.rock-music-nav li a.punk { color: #80cdd7; }
-		.rock-music-nav li a.punk:hover { background: #80cdd7; color: white;}
-		.rock-music-nav li a.psyche:before { background: #abc34d; }
-		.rock-music-nav li a.psyche { color: #abc34d; }
-		.rock-music-nav li a.psyche:hover { background: #abc34d; color: white;}
-		.rock-music-nav li a.metal:before { background: #fdc333; }
-		.rock-music-nav li a.metal { color: #fdc333; }
-		.rock-music-nav li a.metal:hover { background: #fdc333; color: white;}
-		.rock-music-nav li a.modern:before { background: #df7460; }
-		.rock-music-nav li a.modern{ color: #df7460; }
-		.rock-music-nav li a.modern:hover { background: #df7460; color: white;}
+		.rock-music-nav li a.punk:before { background: #9a85cc; }
+		.rock-music-nav li a.punk { color: #9a85cc; }
+		.rock-music-nav li a.punk:hover { background: #9a85cc; color: white;}
+		.rock-music-nav li a.psyche:before { background: #ea9bc6; }
+		.rock-music-nav li a.psyche { color: #ea9bc6; }
+		.rock-music-nav li a.psyche:hover { background: #ea9bc6; color: white;}
+		.rock-music-nav li a.metal:before { background: #e89f6d; }
+		.rock-music-nav li a.metal { color: #e89f6d; }
+		.rock-music-nav li a.metal:hover { background: #e89f6d; color: white;}
+		.rock-music-nav li a.modern:before { background: #ffdc48; }
+		.rock-music-nav li a.modern{ color: #ffdc48; }
+		.rock-music-nav li a.modern:hover { background: #ffdc48; color: white;}
 		.rock-music-nav li a.select:before { height: 100%; }
 		.rock-music-nav li a.select { color: white; }
 		
-		.moderny { background: #df7460; }
-		.psychy { background: #abc34d; }
-		.punky { background: #80cdd7; }
+		.moderny { background: #ffdc48; }
+		.psychy { background: #ea9bc6; }
+		.punky { background: #9a85cc; }
 		.folky { background: #8f9bca; }
-		.metaly { background: #fdc333; }
+		.metaly { background: #e89f6d; }
 
-		
-		
-		
+		.albumCover { position:relative; 
+			background: black; 
+			left:15px; top:15px; width:245px; height:245px; opacity: 0.1;
+			cursor: pointer;
+			transition: 0.2s;}
+		.albumCover:hover { left:0px; top: 0px; width:275px; height:275px; opacity: 1; }
+		.albumCover img { opacity: 0.5; }
 
-		.albumCover { position:relative;
-			left:5px; top: 5px; cursor: pointer;
-			width:265px; height:265px; transition: 0.2s;}
-		.albumCover:hover { left:12.5px; top:12.5px; width:250px; height:250px; opacity: 0;}
+		.music-item { 
+			overflow: hidden;
+			transition: 0.2s;
+			margin: 2px;
+			width: 275px;
+			height: 275px; }
+
 		.music-item p{ position: absolute; bottom: 20px; left: 20px; font-size: 1em;
 			line-height:1.7em; font-weight: bold; color: white;
 			font-family: 'Noto Sans KR', sans-serif; }
 
-		#mist { position: fixed; left: 0; top:0; background: black; width: 100%; height: 100%;
-			}
-		#mist p1{
-			font-family: 'Exo', sans-serif;
-			font-size: 2em;
-			color: black;
-			text-transform: uppercase;
-			font-weight: 700;
-			word-spacing: 0px;
-			letter-spacing: -0.1px; 
-			line-height: 45px;
-			position: fixed; top: 350px; left: 200px; color:white; }
-		#mist p2{ 
-			font-family: 'Exo', sans-serif;
-			font-size: 2em;
-			color: black;
-			text-transform: uppercase;
-			font-weight: 700;
-			word-spacing: 0px;
-			letter-spacing: -0.1px; 
-			line-height: 45px;
-			position: fixed; top: 350px; right: 100px; color:white; }
-		#cain{ position: fixed; height:610px; opacity:1; left:calc(50% - 215px); top:90px; transition: 1s;
-			transition-delay: display 1s;}
-
+		#blackBox { position: fixed; display: none;
+			left:0; top:0; width:100%; height:100%; }
+		.back { background: black; opacity:0.5; }
+		#videoBox { position: fixed; background: black; opacity:1; display: none;
+			left:calc(50% - 350px); top:calc(50% - 200px); width:700px; height:400px; }
+		#vidvid { padding: 20px 80px; }
 	</style>
 </head>
 <body>
@@ -238,7 +221,7 @@
 	<div id="header" class="container">
 		<div class="component">
 			<a id="logo" href="index.html" title="Main">
-				<img src="logo.png" alt="Main" width="58" height="58">
+				<img src="logo.png" alt="Main" width="64" height="64">
 			</a>
 		</div>
 	</div>
@@ -293,7 +276,7 @@
 					</ul>
 				</div>
 
-				<ul id="music-list" class="music-list" style="position: relative; height: 3627px;">
+				<ul id="music-list" class="music-list" style="position: relative; height: 4436px;">
 					<li class="music-item moderny psychy" style="position: absolute; left:2px; top:30px;">
 						<p>
 							국카스텐<br>1집 Guckkasten<br>Modern / Psychedelic
@@ -365,7 +348,7 @@
 						<p>
 							3호선 버터플라이<br>4집 Dreamtalk<br>Modern
 						</p>
-						<img id="3rdbutfly" src="3rdbutfly.JPG" class="albumCover">
+						<img id="butfly" src="3rdbutfly.JPG" class="albumCover">
 					</li>
 					<li class="music-item folky psychy" style="position: absolute; left:2px; top:867px;">
 						<p>
@@ -391,16 +374,292 @@
 						</p>
 						<img id="ooohome" src="ooohome.jpg" class="albumCover">
 					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:2px; top:1146px;">
+						<p>
+							보이즈 인 더 키친<br>1집 Out of the Kitchen<br>Modern / Punk
+						</p>
+						<img id="bitkitchen" src="bitkitchen.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:281px; top:1146px;">
+						<p>
+							칵스(THE KOXX)<br>2집 The new normal<br>Modern / Punk
+						</p>
+						<img id="koxx" src="koxx.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:1146px;">
+						<p>
+							디어 클라우드<br>1집 Dear Cloud<br>Modern
+						</p>
+						<img id="dcloud" src="dcloud.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy punky" style="position: absolute; left:839px; top:1146px;">
+						<p>
+							실리카겔<br>1집 실리카겔<br>Modern / Psychedelic / Punk
+						</p>
+						<img id="silika" src="silika.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:2px; top:1425px;">
+						<p>
+							이채언루트<br>1집 EP Madeline<br>Modern
+						</p>
+						<img id="echae" src="echae.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:281px; top:1425px;">
+						<p>
+							9와 숫자들<br>2집 보물섬<br>Modern
+						</p>
+						<img id="ninechildren" src="9children.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:1425px;">
+						<p>
+							구남과여라이딩스텔라<br>3집 썬파워<br>Modern
+						</p>
+						<img id="oldboygirl" src="oldboygirl.jpg" class="albumCover">
+					</li>
+					<li class="music-item metaly psychy punky" style="position: absolute; left:839px; top:1425px;">
+						<p>
+							갤럭시 익스프레스<br>1집 Noise on Fire<br>Metal / Psychedelic / Punk
+						</p>
+						<img id="galaxyex" src="galaxyex.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:2px; top:1704px;">
+						<p>
+							라이프 앤 타임<br>1집 LAND<br>Modern
+						</p>
+						<img id="lifeandtime" src="lifeandtime.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:281px; top:1704px;">
+						<p>
+							솔루션스<br>1집 THE SOLUTIONS<br>Modern
+						</p>
+						<img id="solutions" src="solutions.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:560px; top:1704px;">
+						<p>
+							바이 바이 배드맨<br>2집 AUTHENTIC<br>Modern / Psychedelic
+						</p>
+						<img id="byebyebad" src="byebyebad.jpg" class="albumCover">
+					</li>
+					<li class="music-item psychy" style="position: absolute; left:839px; top:1704px;">
+						<p>
+							서울 전자 음악단<br>2집 Life is Strange<br>Psychedelic
+						</p>
+						<img id="seoulelec" src="seoulelec.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny folky" style="position: absolute; left:2px; top:1983px;">
+						<p>
+							망각화<br>1집 몹시 용기를 내어<br>Modern / Folk
+						</p>
+						<img id="manggak" src="manggak.JPG" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:281px; top:1983px;">
+						<p>
+							폰부스(Phonebooth)<br>3집 Wonder<br>Modern / Punk
+						</p>
+						<img id="Phonebooth" src="Phonebooth.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:1983px;">
+						<p>
+							로열 파이럿츠<br>EP Drawing the Line<br>Modern
+						</p>
+						<img id="royalp" src="royalp.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:839px; top:1983px;">
+						<p>
+							크랜필드<br>1집 밤의 악대<br>Modern / Psychedelic
+						</p>
+						<img id="crenfield" src="crenfield.JPG" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:2px; top:2262px;">
+						<p>
+							전기뱀장어<br>1집 최고의 연애<br>Modern
+						</p>
+						<img id="elecbaam" src="elecbaam.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:281px; top:2262px;">
+						<p>
+							줄리아 하트<br>5집 인디 달링을 찾아서<br>Modern
+						</p>
+						<img id="juliaheart" src="juliaheart.JPG" class="albumCover">
+					</li>
+					<li class="music-item folky" style="position: absolute; left:560px; top:2262px;">
+						<p>
+							아마도이자람밴드<br>1집 데뷰<br>Folk
+						</p>
+						<img id="leejaram" src="leejaram.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:839px; top:2262px;">
+						<p>
+							딕펑스<br>1집 DICKPUNKS<br>Modern / Punk
+						</p>
+						<img id="dickpunks" src="dickpunks.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy punky" style="position: absolute; left:2px; top:2541px;">
+						<p>
+							로큰롤라디오<br>1집 Shut up and dance<br>Modern / Psychedelic / Punk
+						</p>
+						<img id="rocknradio" src="rocknradio.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:281px; top:2541px;">
+						<p>
+							브로콜리 너마저<br>2집 졸업<br>Modern
+						</p>
+						<img id="brocoly" src="brocoly.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky metaly" style="position: absolute; left:560px; top:2541px;">
+						<p>
+							옐로우 몬스터즈<br>1집 Yellow Monsters<br>Modern / Punk / Metal
+						</p>
+						<img id="yellowmon" src="yellowmon.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:839px; top:2541px;">
+						<p>
+							환상약국<br>EP Walking in the Dream<br>Modern / Psychedelic
+						</p>
+						<img id="fantadrug" src="fantadrug.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny metaly" style="position: absolute; left:2px; top:2820px;">
+						<p>
+							브로큰발렌타인<br>2집 알루미늄<br>Modern / Metal
+						</p>
+						<img id="brokenb" src="brokenb.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:281px; top:2820px;">
+						<p>
+							불독맨션<br>1집 Funk<br>Modern / Punk
+						</p>
+						<img id="buldog" src="buldog.png" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:560px; top:2820px;">
+						<p>
+							네미시스<br>1집 La Rose de Versailles<br>Modern / Psychedelic
+						</p>
+						<img id="nemesis" src="nemesis.JPG" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:839px; top:2820px;">
+						<p>
+							제8극장<br>2집 양화대교<br>Modern
+						</p>
+						<img id="8theater" src="8theater.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:2px; top:3099px;">
+						<p>
+							입술을깨물다<br>1집 순간<br>Modern / Punk
+						</p>
+						<img id="bitelip" src="bitelip.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:281px; top:3099px;">
+						<p>
+							애쉬그레이<br>1집 Ashgray<br>Modern
+						</p>
+						<img id="ashgray" src="ashgray.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:560px; top:3099px;">
+						<p>
+							아침(Achime)<br>2집 Overcome<br>Modern / Punk
+						</p>
+						<img id="achime" src="achime.JPG" class="albumCover">
+					</li>
+					<li class="music-item punky psychy" style="position: absolute; left:839px; top:3099px;">
+						<p>
+							무키무키만만수<br>1집 2012<br>Punk / Psychedelic
+						</p>
+						<img id="mukimuki" src="mukimuki.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky metaly" style="position: absolute; left:2px; top:3378px;">
+						<p>
+							게이트 플라워즈<br>2집 The first Album ‘Times’<br>Modern / Punk / Metal
+						</p>
+						<img id="gateflowers" src="gateflowers.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:281px; top:3378px;">
+						<p>
+							몽구스<br>3집 The Mongoose<br>Modern
+						</p>
+						<img id="mongoose" src="mongoose.JPG" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:3378px;">
+						<p>
+							안녕바다<br>1집 City Complex<br>Modern
+						</p>
+						<img id="hellosea" src="hellosea.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:839px; top:3378px;">
+						<p>
+							피터팬 컴플렉스<br>3집 I'm a beautiful man<br>Modern / Psychedelic
+						</p>
+						<img id="peterpan" src="peterpan.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky" style="position: absolute; left:2px; top:3657px;">
+						<p>
+							트랜스픽션<br>1집 Trans Fixion 1st Album<br>Modern / Punk
+						</p>
+						<img id="transfixion" src="transfixion.JPG" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:281px; top:3657px;">
+						<p>
+							눈뜨고코베인<br>1집 Pop To The People<br>Modern / Psychedelic
+						</p>
+						<img id="eyenosecut" src="eyenosecut.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:3657px;">
+						<p>
+							슈가도넛<br>1집 Spinner Jump<br>Modern
+						</p>
+						<img id="sugardonut" src="sugardonut.JPG" class="albumCover">
+					</li>
+					<li class="music-item punky" style="position: absolute; left:839px; top:3657px;">
+						<p>
+							슈퍼키드<br>1집 Super Kidd<br>Punk
+						</p>
+						<img id="superkidd" src="superkidd.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:2px; top:3936px;">
+						<p>
+							몽니<br>3집 단 한번의 여행 (Special Edition)<br>Modern
+						</p>
+						<img id="monni" src="monni.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny folky" style="position: absolute; left:281px; top:3936px;">
+						<p>
+							악퉁<br>3집 다시 쓰기<br>Modern / Folk
+						</p>
+						<img id="achtung" src="achtung.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny" style="position: absolute; left:560px; top:3936px;">
+						<p>
+							보드카 레인<br>3집 Faint<br>Modern
+						</p>
+						<img id="vodkarain" src="vodkarain.jpeg" class="albumCover">
+					</li>
+					<li class="music-item moderny metaly" style="position: absolute; left:839px; top:3936px;">
+						<p>
+							피아<br>2집 3rd phase<br>Modern / Metal
+						</p>
+						<img id="pia" src="pia.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny psychy" style="position: absolute; left:2px; top:4215px;">
+						<p>
+							뷰렛<br>1집 Be Full Of Spirit , Beautiful Violet<br>Modern / Psychedelic
+						</p>
+						<img id="biuret" src="biuret.jpg" class="albumCover">
+					</li>
+					<li class="music-item moderny punky metaly" style="position: absolute; left:281px; top:4215px;">
+						<p>
+							체리필터<br>2집 Made in Korea?<br>Modern / Punk / Metal
+						</p>
+						<img id="cherryf" src="cherryf.png" class="albumCover">
+					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-</div>
-	<div id="mist">
-		<p1>2018. 12. 4.</p1>
-		<img src="cainposter.png" id="cain">
-		<p2>CAIN Regular Concert</p2>
+	<div id="blackBox" class="back"></div>
+	<div id="videoBox">
+			<video id="vidvid" src="videoplayback.mp4" type="video/mp4">
 	</div>
+</div>
+	
 		<script type="text/javascript">
 			var t = document.getElementsByClassName("all")[0];
 			var x = document.getElementsByClassName("folk")[0];
@@ -424,6 +683,19 @@
 			var t2 = 309 + "px";
 			var t3 = 588 + "px";
 			var t4 = 867 + "px";
+			var t5 = 1146 + "px";
+			var t6 = 1425 + "px";
+			var t7 = 1704 + "px";
+			var t8 = 1983 + "px";
+			var t9 = 2262 + "px";
+			var t10 = 2541 + "px";
+			var t11 = 2820 + "px";
+			var t12 = 3099 + "px";
+			var t13 = 3378 + "px";
+			var t14 = 3657 + "px";
+			var t15 = 3936 + "px";
+			var t16 = 4215 + "px";
+
 
 			var l1 = 2 + "px";
 			var l2 = 281 + "px";
@@ -472,21 +744,113 @@
 				allmu[14].style.left = l3;
 				allmu[15].style.top = t4;
 				allmu[15].style.left = l4;
+				allmu[16].style.top = t5;
+				allmu[16].style.left = l1;
+				allmu[17].style.top = t5;
+				allmu[17].style.left = l2;
+				allmu[18].style.top = t5;
+				allmu[18].style.left = l3;
+				allmu[19].style.top = t5;
+				allmu[19].style.left = l4;
+				allmu[20].style.top = t6;
+				allmu[20].style.left = l1;
+				allmu[21].style.top = t6;
+				allmu[21].style.left = l2;
+				allmu[22].style.top = t6;
+				allmu[22].style.left = l3;
+				allmu[23].style.top = t6;
+				allmu[23].style.left = l4;
+				allmu[24].style.top = t7;
+				allmu[24].style.left = l1;
+				allmu[25].style.top = t7;
+				allmu[25].style.left = l2;
+				allmu[26].style.top = t7;
+				allmu[26].style.left = l3;
+				allmu[27].style.top = t7;
+				allmu[27].style.left = l4;
+				allmu[28].style.top = t8;
+				allmu[28].style.left = l1;
+				allmu[29].style.top = t8;
+				allmu[29].style.left = l2;
+				allmu[30].style.top = t8;
+				allmu[30].style.left = l3;
+				allmu[31].style.top = t8;
+				allmu[31].style.left = l4;
+				allmu[32].style.top = t9;
+				allmu[32].style.left = l1;
+				allmu[33].style.top = t9;
+				allmu[33].style.left = l2;
+				allmu[34].style.top = t9;
+				allmu[34].style.left = l3;
+				allmu[35].style.top = t9;
+				allmu[35].style.left = l4;
+				allmu[36].style.top = t10;
+				allmu[36].style.left = l1;
+				allmu[37].style.top = t10;
+				allmu[37].style.left = l2;
+				allmu[38].style.top = t10;
+				allmu[38].style.left = l3;
+				allmu[39].style.top = t10;
+				allmu[39].style.left = l4;
+				allmu[40].style.top = t11;
+				allmu[40].style.left = l1;
+				allmu[41].style.top = t11;
+				allmu[41].style.left = l2;
+				allmu[42].style.top = t11;
+				allmu[42].style.left = l3;
+				allmu[43].style.top = t11;
+				allmu[43].style.left = l4;
+				allmu[44].style.top = t12;
+				allmu[44].style.left = l1;
+				allmu[45].style.top = t12;
+				allmu[45].style.left = l2;
+				allmu[46].style.top = t12;
+				allmu[46].style.left = l3;
+				allmu[47].style.top = t12;
+				allmu[47].style.left = l4;
+				allmu[48].style.top = t13;
+				allmu[48].style.left = l1;
+				allmu[49].style.top = t13;
+				allmu[49].style.left = l2;
+				allmu[50].style.top = t13;
+				allmu[50].style.left = l3;
+				allmu[51].style.top = t13;
+				allmu[51].style.left = l4;
+				allmu[52].style.top = t14;
+				allmu[52].style.left = l1;
+				allmu[53].style.top = t14;
+				allmu[53].style.left = l2;
+				allmu[54].style.top = t14;
+				allmu[54].style.left = l3;
+				allmu[55].style.top = t14;
+				allmu[55].style.left = l4;
+				allmu[56].style.top = t15;
+				allmu[56].style.left = l1;
+				allmu[57].style.top = t15;
+				allmu[57].style.left = l2;
+				allmu[58].style.top = t15;
+				allmu[58].style.left = l3;
+				allmu[59].style.top = t15;
+				allmu[59].style.left = l4;
+				allmu[60].style.top = t16;
+				allmu[60].style.left = l1;
+				allmu[61].style.top = t16;
+				allmu[61].style.left = l2;
 
 				for (var i=0;i<modernic.length;i++){
 					modernic[i].style.width = 275 + "px";
 					modernic[i].style.height = 275 + "px";
-					modernic[i].style.background = "#df7460";
+					modernic[i].style.background = "#ffdc48";
 				}
 				for (var i=0;i<psychic.length;i++){
 					psychic[i].style.width = 275 + "px";
 					psychic[i].style.height = 275 + "px";
-					psychic[i].style.background = "#abc34d";
+					psychic[i].style.background = "#ea9bc6";
 				}
 				for (var i=0;i<punkk.length;i++){
 					punkk[i].style.width = 275 + "px";
 					punkk[i].style.height = 275 + "px";
-					punkk[i].style.background = "#80cdd7";
+					punkk[i].style.background = "#9a85cc";
 				}
 				for (var i=0;i<folkk.length;i++){
 					folkk[i].style.width = 275 + "px";
@@ -496,7 +860,7 @@
 				for (var i=0;i<metalic.length;i++){
 					metalic[i].style.width = 275 + "px";
 					metalic[i].style.height = 275 + "px";
-					metalic[i].style.background = "#fdc333";
+					metalic[i].style.background = "#e89f6d";
 				}
 			}
 			x.onclick = function(){
@@ -507,10 +871,16 @@
 				v.className = "metal";
 				w.className = "modern";
 
-				wrap.style.background = "#8f9bca";
+				//wrap.style.background = "#8f9bca";
 
 				folkk[0].style.top = t1;
 				folkk[0].style.left = l1;
+				folkk[1].style.top = t1;
+				folkk[1].style.left = l2;
+				folkk[2].style.top = t1;
+				folkk[2].style.left = l3;
+				folkk[3].style.top = t1;
+				folkk[3].style.left = l4;
 				
 				for (var i=0;i<punkk.length;i++){
 					punkk[i].style.width = 0;
@@ -546,12 +916,44 @@
 				v.className = "metal";
 				w.className = "modern";
 
-				wrap.style.background = "#80cdd7";
+				//wrap.style.background = "#53d4e5";
 
 				punkk[0].style.top = t1;
 				punkk[0].style.left = l1;
 				punkk[1].style.top = t1;
 				punkk[1].style.left = l2;
+				punkk[2].style.top = t1;
+				punkk[2].style.left = l3;
+				punkk[3].style.top = t1;
+				punkk[3].style.left = l4;
+				punkk[4].style.top = t2;
+				punkk[4].style.left = l1;
+				punkk[5].style.top = t2;
+				punkk[5].style.left = l2;
+				punkk[6].style.top = t2;
+				punkk[6].style.left = l3;
+				punkk[7].style.top = t2;
+				punkk[7].style.left = l4;
+				punkk[8].style.top = t3;
+				punkk[8].style.left = l1;
+				punkk[9].style.top = t3;
+				punkk[9].style.left = l2;
+				punkk[10].style.top = t3;
+				punkk[10].style.left = l3;
+				punkk[11].style.top = t3;
+				punkk[11].style.left = l4;
+				punkk[12].style.top = t4;
+				punkk[12].style.left = l1;
+				punkk[13].style.top = t4;
+				punkk[13].style.left = l2;
+				punkk[14].style.top = t4;
+				punkk[14].style.left = l3;
+				punkk[15].style.top = t4;
+				punkk[15].style.left = l4;
+				punkk[16].style.top = t5;
+				punkk[16].style.left = l1;
+				punkk[17].style.top = t5;
+				punkk[17].style.left = l2;
 
 				for (var i=0;i<folkk.length;i++){
 					folkk[i].style.width = 0;
@@ -576,7 +978,7 @@
 				for (var i=0;i<punkk.length;i++){
 					punkk[i].style.width = 275 + "px";
 					punkk[i].style.height = 275 + "px";
-					punkk[i].style.background = "#80cdd7";
+					punkk[i].style.background = "#9a85cc";
 
 				}
 			}
@@ -588,7 +990,7 @@
 				v.className = "metal";
 				w.className = "modern";
 
-				wrap.style.background = "#abc34d";
+				//wrap.style.background = "#bcef41";
 
 				psychic[0].style.top = t1;
 				psychic[0].style.left = l1;
@@ -600,6 +1002,30 @@
 				psychic[3].style.left = l4;
 				psychic[4].style.top = t2;
 				psychic[4].style.left = l1;
+				psychic[5].style.top = t2;
+				psychic[5].style.left = l2;
+				psychic[6].style.top = t2;
+				psychic[6].style.left = l3;
+				psychic[7].style.top = t2;
+				psychic[7].style.left = l4;
+				psychic[8].style.top = t3;
+				psychic[8].style.left = l1;
+				psychic[9].style.top = t3;
+				psychic[9].style.left = l2;
+				psychic[10].style.top = t3;
+				psychic[10].style.left = l3;
+				psychic[11].style.top = t3;
+				psychic[11].style.left = l4;
+				psychic[12].style.top = t4;
+				psychic[12].style.left = l1;
+				psychic[13].style.top = t4;
+				psychic[13].style.left = l2;
+				psychic[14].style.top = t4;
+				psychic[14].style.left = l3;
+				psychic[15].style.top = t4;
+				psychic[15].style.left = l4;
+				psychic[16].style.top = t5;
+				psychic[16].style.left = l1;
 
 				for (var i=0;i<folkk.length;i++){
 					folkk[i].style.width = 0;
@@ -624,7 +1050,7 @@
 				for (var i=0;i<psychic.length;i++){
 					psychic[i].style.width = 275 + "px";
 					psychic[i].style.height = 275 + "px";
-					psychic[i].style.background = "#abc34d";
+					psychic[i].style.background = "#ea9bc6";
 				}
 			}
 			v.onclick = function(){
@@ -635,10 +1061,22 @@
 				v.className = "metal select";
 				w.className = "modern";
 
-				wrap.style.background = "#fdc333";
+				//wrap.style.background = "#fdc333";
 
 				metalic[0].style.top = t1;
 				metalic[0].style.left = l1;
+				metalic[1].style.top = t1;
+				metalic[1].style.left = l2;
+				metalic[2].style.top = t1;
+				metalic[2].style.left = l3;
+				metalic[3].style.top = t1;
+				metalic[3].style.left = l4;
+				metalic[4].style.top = t2;
+				metalic[4].style.left = l1;
+				metalic[5].style.top = t2;
+				metalic[5].style.left = l2;
+				metalic[6].style.top = t2;
+				metalic[6].style.left = l3;
 
 				for (var i=0;i<folkk.length;i++){
 					folkk[i].style.width = 0;
@@ -663,7 +1101,7 @@
 				for (var i=0;i<metalic.length;i++){
 					metalic[i].style.width = 275 + "px";
 					metalic[i].style.height = 275 + "px";
-					metalic[i].style.background = "#fdc333";
+					metalic[i].style.background = "#e89f6d";
 				}
 			}
 			w.onclick = function(){
@@ -674,7 +1112,7 @@
 				v.className = "metal";
 				w.className = "modern select";
 
-				wrap.style.background = "#df7460";
+				//wrap.style.background = "#f98c28";
 
 				modernic[0].style.top = t1;
 				modernic[0].style.left = l1;
@@ -704,6 +1142,89 @@
 				modernic[12].style.left = l1;
 				modernic[13].style.top = t4;
 				modernic[13].style.left = l2;
+				modernic[14].style.top = t4;
+				modernic[14].style.left = l3;
+				modernic[15].style.top = t4;
+				modernic[15].style.left = l4;
+				modernic[16].style.top = t5;
+				modernic[16].style.left = l1;
+				modernic[17].style.top = t5;
+				modernic[17].style.left = l2;
+				modernic[18].style.top = t5;
+				modernic[18].style.left = l3;
+				modernic[19].style.top = t5;
+				modernic[19].style.left = l4;
+				modernic[20].style.top = t6;
+				modernic[20].style.left = l1;
+				modernic[21].style.top = t6;
+				modernic[21].style.left = l2;
+				modernic[22].style.top = t6;
+				modernic[22].style.left = l3;
+				modernic[23].style.top = t6;
+				modernic[23].style.left = l4;
+				modernic[24].style.top = t7;
+				modernic[24].style.left = l1;
+				modernic[25].style.top = t7;
+				modernic[25].style.left = l2;
+				modernic[26].style.top = t7;
+				modernic[26].style.left = l3;
+				modernic[27].style.top = t7;
+				modernic[27].style.left = l4;
+				modernic[28].style.top = t8;
+				modernic[28].style.left = l1;
+				modernic[29].style.top = t8;
+				modernic[29].style.left = l2;
+				modernic[30].style.top = t8;
+				modernic[30].style.left = l3;
+				modernic[31].style.top = t8;
+				modernic[31].style.left = l4;
+				modernic[32].style.top = t9;
+				modernic[32].style.left = l1;
+				modernic[33].style.top = t9;
+				modernic[33].style.left = l2;
+				modernic[34].style.top = t9;
+				modernic[34].style.left = l3;
+				modernic[35].style.top = t9;
+				modernic[35].style.left = l4;
+				modernic[36].style.top = t10;
+				modernic[36].style.left = l1;
+				modernic[37].style.top = t10;
+				modernic[37].style.left = l2;
+				modernic[38].style.top = t10;
+				modernic[38].style.left = l3;
+				modernic[39].style.top = t10;
+				modernic[39].style.left = l4;
+				modernic[40].style.top = t11;
+				modernic[40].style.left = l1;
+				modernic[41].style.top = t11;
+				modernic[41].style.left = l2;
+				modernic[42].style.top = t11;
+				modernic[42].style.left = l3;
+				modernic[43].style.top = t11;
+				modernic[43].style.left = l4;
+				modernic[44].style.top = t12;
+				modernic[44].style.left = l1;
+				modernic[45].style.top = t12;
+				modernic[45].style.left = l2;
+				modernic[46].style.top = t12;
+				modernic[46].style.left = l3;
+				modernic[47].style.top = t12;
+				modernic[47].style.left = l4;
+				modernic[48].style.top = t13;
+				modernic[48].style.left = l1;
+				modernic[49].style.top = t13;
+				modernic[49].style.left = l2;
+				modernic[50].style.top = t13;
+				modernic[50].style.left = l3;
+				modernic[51].style.top = t13;
+				modernic[51].style.left = l4;
+				modernic[52].style.top = t14;
+				modernic[52].style.left = l1;
+				modernic[53].style.top = t14;
+				modernic[53].style.left = l2;
+				modernic[54].style.top = t14;
+				modernic[54].style.left = l3;
+				
 
 				for (var i=0;i<folkk.length;i++){
 					folkk[i].style.width = 0;
@@ -728,13 +1249,263 @@
 				for (var i=0;i<modernic.length;i++){
 					modernic[i].style.width = 275 + "px";
 					modernic[i].style.height = 275 + "px";
-					modernic[i].style.background = "#df7460"
+					modernic[i].style.background = "#ffdc48"
 				}
 			}
-			mist.onclick = function(){
-				mist.style.display = "none";
+			function videodp(){
+				blackBox.style.display = "block";
+				videoBox.style.display = "block";
 			}
-
+			function vidPlayPause() {
+				var vidvid = document.getElementById("vidvid");
+				if (vidvid.paused) { vidvid.play();
+				}else { vidvid.pause(); }
+			}
+			blackBox.onclick = function(){
+				blackBox.style.display = "none";
+				videoBox.style.display = "none";
+				vidPlayPause();
+			}
+			guckka.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback.mp4");
+				vidvid.style.padding = "20px 80px";
+				vidPlayPause();
+				videodp();
+			}
+			nell.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (1).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			rpunch.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (2).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			ppts.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (3).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			hyukoh.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (4).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			hbbutton.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (5).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			jambinai.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (6).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			sultan.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (7).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			jannabi.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (8).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			daybreak.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (9).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			newboys.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (10).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			butfly.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (11).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			jangkiha.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (12).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			thornapple.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (13).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			mot.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (14).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			ooohome.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (15).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			bitkitchen.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (16).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			koxx.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (17).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			dcloud.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (18).mp4");
+				vidvid.style.padding = "20px 110px";
+				vidPlayPause();
+				videodp();
+			}
+			silika.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (19).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			echae.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (20).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			ninechildren.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (21).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			oldboygirl.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (22).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			galaxyex.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (23).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			lifeandtime.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (24).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			solutions.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (25).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			byebyebad.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (26).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			seoulelec.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (27).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			manggak.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (28).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			Phonebooth.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (29).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			royalp.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (30).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			crenfield.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (31).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			elecbaam.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (32).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			juliaheart.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (33).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			leejaram.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (34).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			dickpunks.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (35).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			rocknradio.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (36).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			brocoly.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (37).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			yellowmon.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (38).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			fantadrug.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (39).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
 		</script>
 </body>
 </html>
