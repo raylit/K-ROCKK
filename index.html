@@ -43,7 +43,7 @@
 		}
 
 
-		#logo { position: relative; float:left; overflow: hidden; top:10px; width:64px; height:64px; background: black;
+		#logo { position: relative; float:left; overflow: hidden; top:10px; width:64px; height:64px; background: white;
 			left: calc(50% - 29px);  }
 		#music-list {  }
 		.music-list {
@@ -211,11 +211,16 @@
 		.back { background: black; opacity:0.5; }
 		#videoBox { position: fixed; background: black; opacity:1; display: none;
 			left:calc(50% - 350px); top:calc(50% - 200px); width:700px; height:400px; }
-		#vidvid { padding: 20px 80px; }
+		#videoBox p{ font-family: 'Exo', sans-serif; font-size: 1.5em; color:white;
+			line-height: 400px; position:fixed; text-align: center; width:700px; height:400px; z-index: -1;}
+		#vidvid { padding: 20px 30px; z-index: 20;}
 		#footer { height: 180px; background: black; }
-		#footer p { padding-top:20px; color: white; 
-			font-family: 'Exo', sans-serif;
-			position: relative; line-height: 1.7em}
+		.footerText { float: left; padding-top:20px; color: white; 
+			font-family: 'Exo', sans-serif; font-size: 0.9em;
+			position: relative; line-height: 1.6em}
+		.rightfooter { float:right; color: #DDDDDD; font-size: 0.9em; padding-top:20px; text-align: right; font-family: 'Noto Sans KR', sans-serif; position: relative; right:0px; line-height: 1.6em}
+
+
 	</style>
 </head>
 <body>
@@ -544,7 +549,7 @@
 						<p>
 							제8극장<br>2집 양화대교<br>Modern
 						</p>
-						<img id="8theater" src="8theater.jpg" class="albumCover">
+						<img id="t8theater" src="8theater.jpg" class="albumCover">
 					</li>
 					<li class="music-item moderny punky" style="position: absolute; left:2px; top:3099px;">
 						<p>
@@ -660,12 +665,15 @@
 	</div>
 	<div id="blackBox" class="back"></div>
 	<div id="videoBox">
-			<video id="vidvid" src="videoplayback.mp4" type="video/mp4">
+		<p>Loading...</p>
+		<video id="vidvid" src="videoplayback.mp4" type="video/mp4" preload="auto">
 	</div>
 	<footer id="footer" class="container">
 		<div class="component">
-			<p>2018 Hankyong National University<br>Department of Design<br>Digital Publishing<br><br>K-ROCK Chart
+			<p class="footerText">K-ROCK Chart <br><br><br> 2018 Hankyong National University<br>Digital Publishing2 in Department of Design
 			</p>
+			<p2 class="rightfooter">
+			2000년대 이후 데뷔한 밴드 중 국내 록 음악 시장 발전에 기여하고 있는<br>현재 활동 중인 62개의 록 밴드들을 엄선해 모았습니다.<br><br>국립한경대학교 록밴드 동아리 카인<br>2018년도 회장 디자인학과 장성훈</p2>
 		</div>
 	</footer>
 </div>
@@ -1278,7 +1286,7 @@
 			}
 			guckka.onclick = function(){
 				vidvid.setAttribute("src", "videoplayback.mp4");
-				vidvid.style.padding = "20px 80px";
+				vidvid.style.padding = "20px 30px";
 				vidPlayPause();
 				videodp();
 			}
@@ -1513,6 +1521,138 @@
 			fantadrug.onclick = function(){
 				vidvid.setAttribute("src", "videoplayback (39).mp4");
 				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			brokenb.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (40).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			buldog.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (41).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			nemesis.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (42).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			t8theater.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (43).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			bitelip.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (44).mp4");
+				vidvid.style.padding = "20px 249px";
+				vidPlayPause();
+				videodp();
+			}
+			ashgray.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (45).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			achime.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (46).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			mukimuki.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (47).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			gateflowers.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (48).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			mongoose.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (49).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			hellosea.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (50).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			peterpan.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (51).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			transfixion.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (52).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			eyenosecut.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (53).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			sugardonut.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (54).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			superkidd.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (55).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			monni.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (56).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			achtung.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (57).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			vodkarain.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (58).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			pia.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (59).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			biuret.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (60).mp4");
+				vidvid.style.padding = "20px 30px";
+				vidPlayPause();
+				videodp();
+			}
+			cherryf.onclick = function(){
+				vidvid.setAttribute("src", "videoplayback (61).mp4");
+				vidvid.style.padding = "20px 66px";
 				vidPlayPause();
 				videodp();
 			}
