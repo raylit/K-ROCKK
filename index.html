@@ -3,6 +3,8 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="normalize.css">
 	<link href="https://fonts.googleapis.com/css?family=Exo|Noto+Sans+KR" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
 	<meta charset = "utf-8">
 	<meta name="description" content="2000년대 이후 데뷔한 밴드 중 국내 록 음악 시장 발전에 기여하고 있는 현재 활동 중인 62개의 록 밴드들을 엄선해 모았습니다.">
 	<meta property="og:type" content="website">
@@ -87,6 +89,40 @@
 			line-height: 45px;
 
 		}
+
+		#artists {
+			cursor: pointer;
+			font-size: 1em;
+			font-family: 'Noto Sans KR', sans-serif;
+			text-align: center;
+			line-height: 30px;
+			background: #BBBBBB;
+			color: white;
+			position: absolute;
+			left:1020px;
+			top:130px;
+			padding: 10px 10px;
+			width:120px; height:30px;
+		}
+		#listBox {
+			overflow: hidden;
+			position: absolute;
+			left:820px;
+			top:200px;
+			width: 340px; height:260px;
+		}
+		#artistsList {
+			transition: 0.5s;
+			top:-260px;
+			position: relative;
+			word-break: keep-all;
+			text-align: right;
+			position: absolute;
+			color:#ea9bc6;
+			font-size: 0.8em; line-height: 1.6em;
+			font-family: 'Noto Sans KR', sans-serif;
+		}
+
 		
 		#chart:before {
 			position: relative;
@@ -254,6 +290,16 @@
 				2018년 현재 한국의 음악 시장은 K-POP으로 대변되는 Idol 음악과, 기성 가수들의 발라드 혹은 OST, 그리고 Show me the Money와 고등래퍼 등의 오디션 프로그램에 힘입어 차트를 넘보는 Hip-Hop 음악이 주류이다. 1980년대 이후 한국에서 '록 음악'은 매우 불안정한 입지를 가지게 되었는데, 한국 록의 인지도 부족은 음악성의 부족이 아닌 록 음악에 대한 사람들의 무지와 선입견에 기인하고, 또한 기존 음악 시장의 자본력을 따라가지 못하기 때문이다. <br><br>그렇기에 이 차트에서는 이러한 한국의 음악 시장 현황에도 꾸준히 음악 활동을 지속하며 대한민국 록 음악 발전에 기여하고 있는 현재의 한국의 록 밴드들, 그들의 명반을 소개하려고 한다.
 				</p>
 			</div>
+			
+			</div>
+
+			<div id="artists">
+				수록된 밴드
+			</div>
+			<div id="listBox">
+			<div id="artistsList">
+				국카스텐, 넬, 로맨틱펀치, 페퍼톤스, 혁오, 해리빅버튼, 잠비나이, 술탄 오브 더 디스코, 잔나비, 데이브레이크, 새소년, 3호선 버터플라이, 장기하와 얼굴들, 쏜애플, 못, O.O.O, 보이즈 인 더 키친, 칵스, 디어클라우드, 실리카겔, 이채언루트, 9와 숫자들, 구남과여라이딩스텔라, 갤럭시 익스프레스, 라이프 앤 타임, 솔루션스, 바이 바이 배드맨, 서울 전자 음악단, 망각화, 폰부스, 로열 파이럿츠, 크랜필드, 전기뱀장어, 줄리아 하트, 아마도이자람밴드, 딕펑스, 로큰롤라디오, 브로콜리 너마저, 옐로우 몬스터즈, 환상약국, 브로큰발렌타인, 불독맨션, 네미시스, 제8극장, 입술을깨물다, 애쉬그레이, 아침, 무키무키만만수, 게이트 플라워즈, 몽구스, 안녕바다, 피터팬 컴플렉스, 트랜스픽션, 눈뜨고코베인, 슈가도넛, 슈퍼키드, 몽니, 	악퉁, 보드카레인, 피아, 뷰렛, 체리필터
+				</div>
 			</div>
 			<div class="content-info">
 				<div id="rock-music-nav" class="rock-music-nav">
@@ -1661,6 +1707,19 @@
 				vidvid.style.padding = "20px 66px";
 				vidPlayPause();
 				videodp();
+			}
+			var toggle = "off"
+			artists.onclick = function(){
+				
+				if(toggle == "off"){
+					toggle = "on"
+					artists.style.background = "#ea9bc6"
+					artistsList.style.top = 0 + "px";
+				}else if(toggle == "on"){
+					toggle = "off"
+					artistsList.style.top = -260 + "px";
+					artists.style.background = "#BBBBBB"
+				}
 			}
 		</script>
 </body>
